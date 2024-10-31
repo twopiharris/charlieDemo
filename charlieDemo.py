@@ -9,6 +9,13 @@ class Charlie(simpleGE.Sprite):
         self.setImage("Charlie.png")
         self.setSize(50, 50)
         self.position = (320, 400)
+        self.moveSpeed = 5
+        
+    def process(self):
+        if self.isKeyPressed(pygame.K_LEFT):
+            self.x -= self.moveSpeed
+        if self.isKeyPressed(pygame.K_RIGHT):
+            self.x += self.moveSpeed
 
 class Game(simpleGE.Scene):
     def __init__(self):
