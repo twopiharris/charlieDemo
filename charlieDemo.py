@@ -28,7 +28,7 @@ class Coin(simpleGE.Sprite):
 
     def reset(self):
         self.x = random.randint(0, self.screenWidth)
-        self.y = 100
+        self.y = 0
         self.dy = random.randint(self.minSpeed, self.maxSpeed)
         
     def checkBounds(self):
@@ -41,13 +41,17 @@ class Game(simpleGE.Scene):
         self.setImage("campus.jpg")
         self.charlie = Charlie(self)
         self.coin = Coin(self)
- 
-        
-        
+        self.ding = simpleGE.Sound("coin.wav")
+   
+   
         self.sprites = [self.charlie,
                         self.coin]
     
-    
+    def process(self):
+        if self.charlie.collidesWith(self.coin):
+            self.ding.play()
+            self.coin.reset()
+ 
         
 def main():
     game = Game()
