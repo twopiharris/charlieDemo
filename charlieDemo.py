@@ -3,12 +3,20 @@ import pygame, simpleGE
 """CharlieDemo
 """
 
+class Charlie(simpleGE.Sprite):
+    def __init__(self, scene):
+        super().__init__(scene)
+        self.setImage("Charlie.png")
+        self.setSize(50, 50)
+        self.position = (320, 400)
+
 class Game(simpleGE.Scene):
     def __init__(self):
         super().__init__()
         self.setImage("campus.jpg")
+        self.charlie = Charlie(self)
         
-        self.sprites = []
+        self.sprites = [self.charlie]
         
 def main():
     game = Game()
