@@ -51,7 +51,6 @@ class Game(simpleGE.Scene):
         if self.charlie.collidesWith(self.coin):
             self.ding.play()
             self.coin.reset()
- 
         
 def main():
     game = Game()
